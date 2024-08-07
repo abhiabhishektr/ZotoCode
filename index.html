@@ -96,42 +96,62 @@
 </head>
 
 <body class="bg-gray-100">
-  <header class="bg-[#FCF8F1] bg-opacity-30 shadow-md">
-    <div class="px-4 mx-auto sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
-        <div class="flex-shrink-0">
-          <a href="/" title="Home" class="flex items-center">
-            <span class="logo">ZotoCode</span>
-          </a>
+    <header class="bg-[#FCF8F1] bg-opacity-30 shadow-md">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16 lg:h-20">
+            <div class="flex-shrink-0">
+              <a href="/" title="Home" class="flex items-center">
+                <span class="logo">ZotoCode</span>
+              </a>
+            </div>
+      
+            <button id="menu-button" type="button" class="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100">
+              <svg class="block w-6 h-6 menu-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+              </svg>
+              <svg class="hidden w-6 h-6 menu-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+      
+            <div class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
+              <a href="/" title="Home" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Home</a>
+              <a href="/about" title="About" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">About</a>
+              <a href="/services" title="Services" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Services</a>
+              <a href="/contact" title="Contact" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Contact</a>
+            </div>
+            <div class="relative hidden lg:block">
+              <a href="tel:+918111918000" title="Call Us" class="call-button">
+                <span class="absolute -right-24 opacity-0 group-hover:opacity-100 transition-opacity duration-300">+91 8111918000</span>
+                Call Us
+              </a>
+            </div>
+          </div>
         </div>
-
-        <button type="button" class="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100">
-          <!-- Menu open: "hidden", Menu closed: "block" -->
-          <svg class="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
-          </svg>
-
-          <!-- Menu open: "block", Menu closed: "hidden" -->
-          <svg class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-
-        <div class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
-          <a href="/" title="Home" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Home</a>
-          <a href="about.html" title="About" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">About</a>
-          <a href="services.html" title="Services" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Services</a>
-          <a href="contact.html" title="Contact" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Contact</a>
+      
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+          <a href="/" title="Home" class="block py-2 px-4 text-base text-gray-800 transition-all duration-200 hover:bg-gray-100">Home</a>
+          <a href="/about" title="About" class="block py-2 px-4 text-base text-gray-800 transition-all duration-200 hover:bg-gray-100">About</a>
+          <a href="/services" title="Services" class="block py-2 px-4 text-base text-gray-800 transition-all duration-200 hover:bg-gray-100">Services</a>
+          <a href="/contact" title="Contact" class="block py-2 px-4 text-base text-gray-800 transition-all duration-200 hover:bg-gray-100">Contact</a>
+          <a href="tel:+918111918000" title="Call Us" class="block py-2 px-4 text-base text-gray-800 transition-all duration-200 hover:bg-gray-100">Call Us: +91 8111918000</a>
         </div>
-        <div class="relative">
-          <a href="tel:+918111918000" title="Call Us" class="call-button">
-            <span class="absolute -right-24 opacity-0 group-hover:opacity-100 transition-opacity duration-300">+91 8111918000</span>
-            Call Us
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+      </header>
+      
+      <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = menuButton.querySelector('.menu-open');
+        const menuCloseIcon = menuButton.querySelector('.menu-close');
+      
+        menuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          menuOpenIcon.classList.toggle('hidden');
+          menuCloseIcon.classList.toggle('hidden');
+        });
+      </script>
+      
 
 
 
