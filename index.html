@@ -1,119 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZotoCode - Software Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZotoCode - Innovative Software Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .logo {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.875rem;
+      /* Adjust font size as needed */
+      font-weight: 700;
+      /* Bold weight */
+      color: #112c58;
+      /* Primary color or any color you prefer */
+    }
+
+    .call-button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1.25rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: #000000;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+    
+    .call-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(255,255,255,0) 80%);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+    
+    .call-button:hover::before {
+        opacity: 1;
+    }
+    
+    .call-button span {
+        position: absolute;
+        right: 100%;
+        transform: translateX(-1rem);
+        opacity: 0;
+        white-space: nowrap;
+        padding: 0.5rem;
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .call-button:hover span {
+        right: 100%;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .call-button:hover {
+        background-color: #fbbf24;
+        color: #000000;
+    }
+    
+    .call-button:hover span {
+        background-color: #000000;
+        color: #ffffff;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+          }
         }
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .slide-in {
-            animation: slideIn 1.5s ease-in-out;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <div class="text-2xl font-bold text-blue-600">ZotoCode</div>
-            <nav>
-                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Home</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Services</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">About</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Contact</a>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="bg-blue-600 text-white py-20">
-        <div class="container mx-auto text-center fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold">Welcome to ZotoCode</h1>
-            <p class="mt-4 text-xl md:text-2xl">Innovation meets excellence in software development</p>
-            <a href="#" class="mt-8 inline-block bg-white text-blue-600 px-6 py-3 rounded-full shadow-md hover:bg-gray-100 transition">Get Started</a>
+<body class="bg-gray-100">
+  <header class="bg-[#FCF8F1] bg-opacity-30 shadow-md">
+    <div class="px-4 mx-auto sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <div class="flex-shrink-0">
+          <a href="/" title="Home" class="flex items-center">
+            <span class="logo">ZotoCode</span>
+          </a>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-600 slide-in">Our Main Features</h2>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">App Build</h3>
-                    <p class="mt-4 text-gray-700">We specialize in building custom mobile applications tailored to your business needs.</p>
+        <button type="button" class="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100">
+          <!-- Menu open: "hidden", Menu closed: "block" -->
+          <svg class="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+          </svg>
+
+          <!-- Menu open: "block", Menu closed: "hidden" -->
+          <svg class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <div class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
+          <a href="/" title="Home" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Home</a>
+          <a href="about.html" title="About" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">About</a>
+          <a href="services.html" title="Services" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Services</a>
+          <a href="contact.html" title="Contact" class="text-base text-gray-800 transition-all duration-200 hover:text-primary">Contact</a>
+        </div>
+        <div class="relative">
+          <a href="tel:+918111918000" title="Call Us" class="call-button">
+            <span class="absolute -right-24 opacity-0 group-hover:opacity-100 transition-opacity duration-300">+91 8111918000</span>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <section class="py-10 bg-white sm:py-16 lg:py-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="grid items-center grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-24 gap-y-12">
+        <div class="relative lg:mb-12">
+          <img class="absolute -right-0 -bottom-8 xl:-bottom-12 xl:-right-4" src="https://cdn.rareblocks.xyz/collection/celebration/images/content/3/dots-pattern.svg" alt="" />
+          <div class="pl-12 pr-6">
+            <img class="relative" src="https://cdn.rareblocks.xyz/collection/celebration/images/content/3/girl-working-on-laptop.jpg" alt="Developer working on laptop" />
+          </div>
+          <div class="absolute left-0 pr-12 bottom-8 xl:bottom-20">
+            <div class="max-w-xs bg-primary rounded-lg sm:max-w-md xl:max-w-md">
+              <div class="px-3 py-4 sm:px-5 sm:py-8">
+                <div class="flex items-start">
+                  <p class="text-3xl sm:text-4xl">👨‍💻</p>
+                  <blockquote class="ml-5">
+                    <p class="text-sm font-medium text-white sm:text-lg">"ZotoCode transformed our business with their innovative software solutions. Our productivity has skyrocketed!"</p>
+                  </blockquote>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">Website Build</h3>
-                    <p class="mt-4 text-gray-700">Our team designs and develops high-quality, responsive websites that engage users.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">SEO Optimization</h3>
-                    <p class="mt-4 text-gray-700">Boost your online presence with our expert SEO services that drive organic traffic and improve search engine rankings.</p>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="bg-gray-100 py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-600 slide-in">About ZotoCode</h2>
-            <p class="mt-4 text-gray-700 slide-in">We specialize in building custom software solutions tailored to meet the unique needs of our clients across various industries. Our team of skilled developers, designers, and project managers work collaboratively to deliver high-quality, scalable, and robust applications that drive business success.</p>
+        <div class="2xl:pl-16">
+          <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl lg:leading-tight">Empowering Your Digital Journey</h2>
+          <p class="text-xl leading-relaxed text-gray-900 mt-9">At ZotoCode, we specialize in creating tailored software solutions that drive your business forward. Our expert team is dedicated to transforming your ideas into powerful, efficient, and user-friendly digital experiences.</p>
+          <p class="mt-6 text-xl leading-relaxed text-gray-900">From comprehensive software support to cutting-edge website and app development, we're here to elevate your digital presence and streamline your operations.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section class="py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-600 slide-in">Our Services</h2>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">Custom Software Development</h3>
-                    <p class="mt-4 text-gray-700">We create bespoke software solutions designed to address your specific business challenges and goals.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">Consultancy Services</h3>
-                    <p class="mt-4 text-gray-700">Our consultancy services help you navigate the complexities of technology and implement the best solutions for your business.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105 slide-in">
-                    <h3 class="text-2xl font-semibold text-blue-600">Maintenance & Support</h3>
-                    <p class="mt-4 text-gray-700">We provide ongoing maintenance and support to ensure your software remains up-to-date and performs optimally.</p>
-                </div>
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Software Support</h3>
+          <p>Comprehensive support for your existing software systems. We ensure smooth operations, quick issue resolution, and continuous improvement of your digital infrastructure.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Website Development</h3>
+          <p>Create stunning, responsive websites that captivate your audience. Our web solutions are tailored to your brand, optimized for performance, and designed for seamless user experiences.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">App Development</h3>
+          <p>Transform your ideas into powerful mobile applications. We develop intuitive, feature-rich apps for iOS and Android platforms that engage users and drive your business goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">The Code You Are Looking For</h2>
+      <p class="text-xl text-gray-700">At ZotoCode, we turn your vision into reality with precision and expertise. Discover how we can help you achieve your goals with our innovative solutions.</p>
+    </div>
+  </section>
+
+  <footer class="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+    <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+      <div class="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
+        <div class="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
+          <img class="w-auto h-12" src="./zotocode.png" alt="ZotoCode Logo" />
+
+          <p class="text-base leading-relaxed text-gray-600 mt-7">Empowering businesses through innovative software solutions. We transform ideas into powerful, efficient, and user-friendly digital experiences.</p>
+
+          <ul class="flex items-center space-x-3 mt-9">
+            <li>
+              <a href="#" title="Twitter" class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/zotocode" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.948.058 1.237.07 1.672.07 4.85s-.012 3.584-.07 4.85c-.148 3.257-1.667 4.8-4.919 4.948-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.948C2.175 12.347 2.163 11.933 2.163 8.745s.012-3.584.07-4.85c.148-3.257 1.667-4.8 4.919-4.948C8.416 2.175 8.796 2.163 12 2.163zm0-2.163c-3.275 0-3.675.013-4.968.072-2.62.122-4.585 1.079-5.708 2.687-1.122 1.606-1.662 3.74-1.662 7.207 0 3.465.54 5.596 1.662 7.207 1.123 1.608 3.088 2.565 5.708 2.687 1.293.059 1.693.072 4.968.072s3.675-.013 4.968-.072c2.62-.122 4.585-1.079 5.708-2.687 1.122-1.606 1.662-3.74 1.662-7.207 0-3.465-.54-5.596-1.662-7.207-1.123-1.608-3.088-2.565-5.708-2.687-1.293-.059-1.693-.072-4.968-.072zM12 5.837a6.163 6.163 0 1 0 0 12.326 6.163 6.163 0 0 0 0-12.326zm0 10.32a4.157 4.157 0 1 1 0-8.315 4.157 4.157 0 0 1 0 8.315zm2.887-10.63a1.53 1.53 0 1 1 0 3.06 1.53 1.53 0 0 1 0-3.06z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/zotocode" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 0h-16c-2.211 0-4 1.789-4 4v16c0 2.211 1.789 4 4 4h16c2.211 0 4-1.789 4-4v-16c0-2.211-1.789-4-4-4zm-12 19h-2v-9h2v9zm-1-10.35c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm15 10.35h-2v-4.35c0-1.05-.9-1.9-2-1.9s-2 .85-2 1.9v4.35h-2v-9h2v1.29c.51-.72 1.37-1.29 2.25-1.29 1.9 0 3.5 1.6 3.5 3.5v5.5z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Company</h3>
+              <ul class="mt-4 space-y-4 text-sm text-gray-600">
+                <li><a href="#" class="hover:text-gray-900">About Us</a></li>
+                <li><a href="#" class="hover:text-gray-900">Careers</a></li>
+                <li><a href="#" class="hover:text-gray-900">Press</a></li>
+                <li><a href="#" class="hover:text-gray-900">Blog</a></li>
+              </ul>
             </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Products</h3>
+              <ul class="mt-4 space-y-4 text-sm text-gray-600">
+                <li><a href="#" class="hover:text-gray-900">Software</a></li>
+                <li><a href="#" class="hover:text-gray-900">Web Development</a></li>
+                <li><a href="#" class="hover:text-gray-900">App Development</a></li>
+                <li><a href="#" class="hover:text-gray-900">Support</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Resources</h3>
+              <ul class="mt-4 space-y-4 text-sm text-gray-600">
+                <li><a href="#" class="hover:text-gray-900">Documentation</a></li>
+                <li><a href="#" class="hover:text-gray-900">API</a></li>
+                <li><a href="#" class="hover:text-gray-900">Guides</a></li>
+                <li><a href="#" class="hover:text-gray-900">FAQs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900">Support</h3>
+              <ul class="mt-4 space-y-4 text-sm text-gray-600">
+                <li><a href="#" class="hover:text-gray-900">Contact Us</a></li>
+                <li><a href="#" class="hover:text-gray-900">Help Center</a></li>
+                <li><a href="#" class="hover:text-gray-900">Community</a></li>
+                <li><a href="#" class="hover:text-gray-900">Feedback</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="bg-blue-600 text-white py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold slide-in">Get in Touch</h2>
-            <p class="mt-4 text-xl slide-in">Have a project in mind? Contact us to discuss how we can help you achieve your goals.</p>
-            <form class="mt-8 max-w-md mx-auto">
-                <input type="text" placeholder="Name" class="w-full p-3 mb-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-gray-400">
-                <input type="email" placeholder="Email" class="w-full p-3 mb-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-gray-400">
-                <textarea placeholder="Message" class="w-full p-3 mb-4 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-gray-400" rows="4"></textarea>
-                <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-full shadow-md hover:bg-gray-100 transition">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white shadow-md py-6">
-        <div class="container mx-auto text-center text-gray-700">
-            &copy; 2024 ZotoCode. All rights reserved.
-        </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
